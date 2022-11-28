@@ -6,5 +6,6 @@ RUN yum install -y --disableplugin=subscription-manager httpd
 RUN yum clean all --disableplugin=subscription-manager -y
 RUN echo "Hello from the httpd-parent container!" > ${DOCROOT}/index.html
 
+RUN rm -rf /run/httpd && mkdir /run/httpd
 EXPOSE 80
 CMD /usr/sbin/httpd -DFOREGROUND
