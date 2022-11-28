@@ -1,4 +1,4 @@
-FROM rhscl/httpd-24-rhel7
+FROM ubi8/ubi
 
 MAINTAINER tester <test@example.com>
 
