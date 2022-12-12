@@ -13,7 +13,7 @@ RUN   yum install -y --nodocs --disableplugin=subscription-manager httpd && \
 
 
 # This stuff is needed to ensure a clean start
-rm -rf /var/run/httpd && mkdir /var/run/httpd
+RUN rm -rf /var/run/httpd && mkdir /var/run/httpd
 
 # Run as the root user
 USER root
