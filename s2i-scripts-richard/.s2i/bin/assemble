@@ -12,9 +12,9 @@ config_s2i
 
 DATE=`date +%y-%m-%d`
 
-cp -rp /tmp/src /opt/app-root
-echo "${DATE}" > /opt/app-root/info.html
-echo "Some static test" > /opt/app-root/info.html
+cp -rp /tmp/src ./
+echo "${DATE}" > ./info.html
+echo "Some static test" >> ./info.html
 
 
 ######## CUSTOMIZATION ENDS HERE ############
