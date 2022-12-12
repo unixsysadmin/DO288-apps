@@ -10,6 +10,12 @@ config_s2i
 
 ######## CUSTOMIZATION STARTS HERE ############
 
+DATE=`date +%y-%m-%d`
+
+echo "${DATE}" > /var/www/html/info.html
+echo "Some static test" > /var/www/html/info.html
+
+
 ######## CUSTOMIZATION ENDS HERE ############
 
 if [ -d ./httpd-cfg ]; then
