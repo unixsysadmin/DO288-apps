@@ -10,8 +10,9 @@ config_s2i
 
 ######## CUSTOMIZATION STARTS HERE ############
 
-echo `date +%Y-%m-%M` > /var/www/html/info.html
-echo "Some static text" >> /var/www/html/info.html
+echo `date +%Y-%m-%M` > ./info.html
+echo "Some static text" >> ./info.html
+cp -rp /tmp/src/* /opt/app-root
 
 
 ######## CUSTOMIZATION ENDS HERE ############
