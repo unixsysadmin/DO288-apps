@@ -10,11 +10,8 @@ RUN   yum install -y --nodocs --disableplugin=subscription-manager httpd && \
       echo "Hello from the httpd-parent container!" > ${DOCROOT}/index.html
 
 # Allows child images to inject their own content into DocumentRoot
-RUN echo '--- Starting customisation of ports' && \
-grep -r 80 /etc/httpd &&
-sed -i 's/^Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf &&
-set -i 's/#ServerName 0.0.0.0:80/ServerName 0.0.0.0:8080/g' /etc/httpd/conf.d/httpd.conf
-
+RUN grep -r 80 /etc/httpd 
+RUN sed -i 's/^Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf && sed -i 's/#ServerName www.example.com:80/ServerName 0.0.0.0:8080/g' /etc/httpd/conf/httpd.conf
 
 # This stuff is needed to ensure a clean start
 RUN rm -rf /run/httpd && mkdir /run/httpd 
