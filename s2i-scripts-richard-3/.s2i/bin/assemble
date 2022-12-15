@@ -12,7 +12,7 @@ config_s2i
 
 echo "`date +%Y-%m-%d`" > info.html
 echo "Thanks for following" >> info.html
-cp -rp src/* ./
+cp -rp /tmp/src/* ./
 
 
 ######## CUSTOMIZATION ENDS HERE ############
