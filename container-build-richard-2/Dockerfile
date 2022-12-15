@@ -7,7 +7,7 @@ ENV DOCROOT /var/www/html
 
 RUN yum install -y --disableplugin=subscription-manager httpd && yum clean all --disableplugin=subscription-manager -y && echo "Hello from the httpd-parent container!" > ${DOCROOT}/index.html
 
-RUN grep -ri 80 /etc/httpd && sed -i 's/Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf && rm -rf /run/httpd && mkdir /run/httpd
+RUN grep -ri 80 /etc/httpd && sed -i 's/Listen 80/Listen 8080/g' /etc/httpd/conf/httpd.conf && rm -rf /run/httpd && mkdir /run/httpd && chgrp -R 0 /var/log/httpd /var/run/httpd && chmod -R g=u /var/log/httpd /var/run/httpd
 
 EXPOSE 8080
 
